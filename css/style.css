@@ -24,6 +24,8 @@ h2, h3 {font-family: sans-serif;}
 h2{font-size: 2em;}
 h3{font-size: 1.75em;}
 
+
+/* Button Styling start */
 .btn {
   background-color: #5A71A3;
   padding: 10px;
@@ -53,3 +55,4 @@ h3{font-size: 1.75em;}
 .reset:hover {
   background-color: #ECECEC;
 }
+/* Button styling End */
