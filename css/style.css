@@ -24,6 +24,7 @@ h2, h3 {font-family: sans-serif;}
 h2{font-size: 2em;}
 h3{font-size: 1.75em;}
 
+input {width: 2em;}
 
 /* Button Styling start */
 .btn {
