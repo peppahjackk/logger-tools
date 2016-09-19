@@ -1,7 +1,7 @@
 * {margin: 0.5rem;}
 
 body {
-  background-color: #1C1C1C;
+  background: url('../img/bg.jpg');
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -10,6 +10,18 @@ body {
   font-size 16px;
   text-align: center;
   overflow: hidden;
+}
+
+body:after {
+  background-color: #1C1C1C;
+  opacity: .75;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .container {
@@ -26,15 +38,15 @@ h2, h3 {font-family: sans-serif;}
 h2{font-size: 2em;}
 h3{font-size: 1.75em;}
 
-input {font-size: 1.25em;
-  width: 2em;}
+input {font-size: 1.15em;
+  width: 1.85em; margin: 0.5rem 0.2rem;}
 .customTime {margin-top: 1rem;}
 
 /* Button Styling start */
 .btn {
   background-color: #5A71A3;
   padding: 10px;
-  border: 1px solid #3D4D70;
+  border: 0px;
   border-radius: 3px;
   color: #EDEDED;
   box-shadow: #2D374D 0px 6px;
