@@ -7,7 +7,7 @@ body {
   height: 100vh;
   color: #ededed;
   font-family: Raleway, sans-serif;
-  font-size 1em;
+  font-size 16px;
   text-align: center;
   overflow: hidden;
 }
@@ -19,12 +19,16 @@ body {
   justify-content: center;
 }
 
-h2, h3 {font-family: sans-serif;}
+.row {display: flex;
+  flex-direction: row;}
 
+h2, h3 {font-family: sans-serif;}
 h2{font-size: 2em;}
 h3{font-size: 1.75em;}
 
-input {width: 2em;}
+input {font-size: 1.25em;
+  width: 2em;}
+.customTime {margin-top: 1rem;}
 
 /* Button Styling start */
 .btn {
