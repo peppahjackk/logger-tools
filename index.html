@@ -1,50 +1,48 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NHL Logger Clock</title>
-  
-  <link href="css/style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NHL Logger Clock</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
 </head>
 
 <body onload="timerStart()">
-  <div class="container">
-  <h1>
+    <div class="container">
+        <h1>
     NHL Logger Clock
   </h1>
-<p>
-  It is currently:
-</p>
-<h3 id="currentTime">
+        <p>
+            It is currently:
+        </p>
+        <h3 id="currentTime">
 -
 </h3>
-<p>
-  The intermission will end at:
-</p>
-<h2 id="intermissionEnd">
+        <p>
+            The intermission will end at:
+        </p>
+        <h2 id="intermissionEnd">
 -
 </h2>
-
-<div class="row">
-  <div id="btnStart" class="btn perEnd">
-    Period End
-  </div>
-  <div id="btnReset" class="btn reset">
-    Reset
-  </div>
-</div>
-    <div class="customTime">
-      <p>(Optional) Enter a custom period end time</p>
-      <input type="text" id="customHr" placeholder="HR">
-      <input type="text" id="customMin" placeholder="MIN">
-      <input type="text" id="customSec" placeholder="SEC">
+        <div class="row">
+            <div id="btnStart" class="btn perEnd">
+                Period End
+            </div>
+            <div id="btnReset" class="btn reset">
+                Reset
+            </div>
+        </div>
+        <div class="customTime">
+            <p>(Optional) Enter a custom period end time</p>
+            <input type="text" id="customHr" placeholder="HR">
+            <input type="text" id="customMin" placeholder="MIN">
+            <input type="text" id="customSec" placeholder="SEC">
+        </div>
     </div>
-
-  </div> <!-- Container End -->
-  
-  <script src="js/clock.js"></script>
+    <!-- Container End -->
+    <script src="js/clock.js"></script>
 </body>
 
 </html>
