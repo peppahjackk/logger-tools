@@ -29,9 +29,9 @@ function setEnd() {
     customMin = (document.querySelector('#customMin').value).replace(/\s/g, '');
     customSec = (document.querySelector('#customSec').value).replace(/\s/g, '');
 
-    if (customHr != "" && !isNaN(customHr) && customHr < 24) { hours = customHr; }
-    if (customMin != "" && !isNaN(customMin) && customMin < 60) { minutes = customMin; }
-    if (customSec != "" && !isNaN(customSec) && customSec < 60) { seconds = customSec; }
+    if (customHr !== "" && !isNaN(customHr) && customHr < 24) { hours = customHr; }
+    if (customMin !== "" && !isNaN(customMin) && customMin < 60) { minutes = customMin; }
+    if (customSec !== "" && !isNaN(customSec) && customSec < 60) { seconds = customSec; }
 
     if (hours >= 23 && minutes >= 42) {
         document.getElementById("intermissionEnd").innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
