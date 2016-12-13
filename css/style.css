@@ -57,6 +57,10 @@ input {
     margin: 0.5rem 0.2rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .customTime {
     margin-top: 1rem;
 }
@@ -96,3 +100,8 @@ input {
 
 
 /* Button styling End */
+
+/* Quiz Styling */
+.quizInput {
+  width: 10em;
+}
