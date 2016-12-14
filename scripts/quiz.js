@@ -11,7 +11,7 @@ function globalFunction() {
   var final = document.getElementById('final');
   var score = 0, answered = 0;
   
-  var questions = {
+  const questions = {
     0: {
       stadium: 'prudential center',
       city: 'newark',

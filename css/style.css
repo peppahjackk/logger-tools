@@ -16,7 +16,7 @@ body {
 
 body:after {
     background-color: #1C1C1C;
-    opacity: .65;
+    opacity: .5;
     content: "";
     z-index: -1;
     position: absolute;
@@ -51,8 +51,15 @@ h3 {
     font-size: 1.75em;
 }
 
+p {
+  margin: .5em;
+}
+
 input {
-    font-size: 1.15em;
+  font-size: 1.15em;
+}
+
+.customTime input {
     width: 1.85em;
     margin: 0.5rem 0.2rem;
 }
@@ -61,10 +68,10 @@ input {
   display: none;
 }
 
-.customTime {
-    margin-top: 1rem;
+.header {
+  border-bottom: 4px solid #ededed;
+  padding: .2em 0;
 }
-
 
 /* Button Styling start */
 
@@ -75,7 +82,7 @@ input {
     border-radius: 3px;
     color: #EDEDED;
     box-shadow: #2D374D 0px 6px;
-    margin-top: 1em;
+    margin-bottom: calc(0.5em + 6px);
 }
 
 .btn:hover {
@@ -105,3 +112,5 @@ input {
 .quizInput {
   width: 10em;
 }
+
+
