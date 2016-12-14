@@ -1,17 +1,6 @@
 "use strict";
 
-function globalFunction() {
-  var order = [];
-  var submit = document.getElementById('btnSubmit');
-  var start = document.getElementById('btnStart');
-  var activeQuiz = document.getElementById('activeQuiz');
-  var question = document.getElementById('question');
-  var answer = document.getElementById('answer');
-  var scoreCount = document.getElementById('score');
-  var final = document.getElementById('final');
-  var score = 0,
-    answered = 0;
-  const questions = {
+  var questions = {
     0: {
       stadium: 'prudential center',
       city: 'newark',
@@ -167,72 +156,4 @@ function globalFunction() {
       city: 'winnipeg',
       team: 'Jets'
     }
-  }
-
-  function startQuiz(questions) {
-    score = 0;
-    answered = 0;
-    scoreQuestion.innerHTML = "Good Luck!";
-    let quizLength = Object.keys(questions).length;
-    while (order.length < quizLength) {
-      let x = Math.floor(Math.random() * (quizLength));
-      if (order.indexOf(x) === -1) {
-        order.push(x);
-      }
-    }
-    hideElt(final);
-    showElt(activeQuiz);
-    hideElt(start);
-    displayNextQuestion(questions, order);
-  }
-
-  function displayNextQuestion(questionSet, order) {
-    //console.log(questionSet.msg.stadium)
-    question.innerHTML = "Where do the " + questionSet[order[0]].team + " play?";
-  }
-
-  function scoreQuestion(order) {
-    answered++;
-    if (answer.value.toLowerCase() === questions[order[0]].stadium) {
-      score++;
-    }
-    scoreCount.innerHTML = "Score: " + score + " correct out of " + answered;
-    answer.value = '';
-    order.shift();
-    if (order.length > 0) {
-      displayNextQuestion(questions, order);
-    } else {
-      endQuiz();
-    }
-  }
-
-  function endQuiz() {
-    hideElt(activeQuiz);
-    showElt(start);
-    showElt(final);
-    final.innerHTML = "Your answered " + score + " out of " + answered + " questions correctly (%" + (Math.round(score / answered * 100)) + ")!";
-    start.innerHTML = "Play again";
-  }
-
-  function showElt(elt) {
-    elt.className = elt.className.replace(/(?:^|\s)hidden(?!\S)/g, '');
-  }
-
-  function hideElt(elt) {
-    if (!elt.className.find(/(?:^|\s)hidden(?!\S)/g)) {
-      if () {elt.className += " hidden";}
-      else {elt.className += "hidden";
-      }
-    }
-    
-  }
-
-  start.addEventListener('click', function() {
-    startQuiz(questions)
-  });
-  submit.addEventListener('click', function() {
-    scoreQuestion(order)
-  });
-}
-
-globalFunction();
+  };
