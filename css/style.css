@@ -1,4 +1,4 @@
-* {
+body * {
   margin: 0.5rem;
 }
 
@@ -11,6 +11,7 @@ body {
   font-family: Raleway, sans-serif;
   font-size 16px;
   text-align: center;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -33,9 +34,10 @@ body:after {
   justify-content: center;
 }
 
-.row {
+.btnRow {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 h2,
@@ -83,7 +85,7 @@ input {
   border-radius: 3px;
   color: #EDEDED;
   box-shadow: #2D374D 0px 6px;
-  margin-bottom: calc(0.5em+ 6px);
+  margin-bottom: calc(0.5em + 6px);
   font-size: 1em;
   font-family: Raleway, sans-serif;
 }

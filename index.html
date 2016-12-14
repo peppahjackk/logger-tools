@@ -14,31 +14,32 @@
     <h1 class="header">
     NHL Logger Clock
   </h1>
-    <p>
-      It is currently:
-    </p>
-    <h3 id="currentTime">
--
-</h3>
-    <p>
-      The intermission will end at:
-    </p>
-    <h2 id="intermissionEnd">
-</h2>
-    <div class="row">
-      <div id="btnStart" class="btn perEnd">
-        Period End
+    <div class="clock">
+
+      <p>
+        It is currently:
+      </p>
+      <h3 id="currentTime">-</h3>
+      <p>
+        The intermission will end at:
+      </p>
+      <h2 id="intermissionEnd">-</h2>
+      <div class="btnRow">
+        <div id="btnStart" class="btn perEnd">
+          Period End
+        </div>
+        <div id="btnReset" class="btn reset">
+          Reset
+        </div>
       </div>
-      <div id="btnReset" class="btn reset">
-        Reset
+      <div class="customTime">
+        <p>(Optional) Enter a custom period end time</p>
+        <input type="text" id="customHr" placeholder="HR">
+        <input type="text" id="customMin" placeholder="MIN">
+        <input type="text" id="customSec" placeholder="SEC">
       </div>
     </div>
-    <div class="customTime">
-      <p>(Optional) Enter a custom period end time</p>
-      <input type="text" id="customHr" placeholder="HR">
-      <input type="text" id="customMin" placeholder="MIN">
-      <input type="text" id="customSec" placeholder="SEC">
-    </div>
+    <!-- Clock End -->
   </div>
   <!-- Container End -->
   <script src="js/clock.js"></script>
