@@ -14,22 +14,21 @@
     <h1 class="header">
       NHL Stadium Quiz
     </h1>
-    <div id="btnStart" class="btn">
+    <div id="btnStart" class="btn" tabindex="1">
       Begin Quiz
     </div>
     <div id="activeQuiz" class="hidden">
       <p id="question">
       </p>
-      <input type="text" id="answer" class="quizInput"/> <br>
-      <button id="btnSubmit" class="btn">
+      <input type="text" id="answer" class="quizInput" tabindex="2"/> <br>
+      <button id="btnSubmit" class="btn" tabindex="3" type="submit">
         Submit
       </button>
       <p id="score">
       </p>
     </div>
     <p id="final" class="hidden"></p>
-    
-    <script src="scripts/answerKey.js"></script>
+
     <script src="scripts/quiz.js"></script>
 </body>
 

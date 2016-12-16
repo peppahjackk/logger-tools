@@ -223,11 +223,14 @@ function globalFunction() {
       if (elt.className.length > 0) {elt.className += " hidden";}
       else {elt.className += "hidden";
       }
-    }
-    
+    }  
   }
-  
-  
+ 
+  answer.onkeydown = function(event) {
+    if (event.keyCode == 13) {
+        scoreQuestion(order);
+    }
+  };
 
   start.addEventListener('click', function() {
     startQuiz(questions)
