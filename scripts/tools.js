@@ -40,11 +40,13 @@ function setEnd() {
     if (customSec !== "" && !isNaN(customSec) && customSec < 60) { seconds = customSec; }
     
     // Handles the changing of an hour
-    if (hours >= 23 && minutes >= 42) {
+    if (hours >= 23 && minutes >= 42 && current.getMinutes() > 17) {
         document.getElementById("intermissionEnd").innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+    } else if (hours >= 23 && minutes >= 42 && current.getMinutes() <= 17) {
+        document.getElementById("intermissionEnd").innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     } else if (hours < 23 && minutes >= 42 && current.getMinutes() > 17) {
         document.getElementById("intermissionEnd").innerHTML = (parseInt(hours) + 1) + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else if (hours < 23 && minutes >= 42 && current.getMinutes() <= 17){
+    } else if (hours < 23 && minutes >= 42 && current.getMinutes() <= 17) {
         document.getElementById("intermissionEnd").innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     }  else {
         document.getElementById("intermissionEnd").innerHTML = hours + ":" + (parseInt(minutes) + 18) + ":" + seconds;
