@@ -3,15 +3,20 @@ var launchBtn = document.getElementById("launchStream");
 var launchFrench = document.getElementById("launchFrench");
 var launchTips = document.getElementById("launchTips");
 var showLaunch = document.getElementById("showLaunch");
+var custHr = document.getElementById("customHr");
+var custMin = document.getElementById("customMin");
+var custSec = document.getElementById("customSec");
+var intermissionEnd = document.getElementById("intermissionEnd");
+var currentTime = document.getElementById("currentTime");
 
 function addZero(n) {
     return (n < 10 ? "0" + n : n);
 }
 
 function timerStart() {
-    document.querySelector("#customHr").value = "";
-    document.querySelector("#customMin").value = "";
-    document.querySelector("#customSec").value = "";
+    custHr.value = "";
+    custMin.value = "";
+    custSec.value = "";
     current = new Date();
     hours = addZero(current.getHours());
     minutes = addZero(current.getMinutes());
@@ -22,17 +27,17 @@ function timerStart() {
         hours = addZero(current.getHours());
         minutes = addZero(current.getMinutes());
         seconds = addZero(current.getSeconds());
-        document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
+        currentTime.innerHTML = hours + ":" + minutes + ":" + seconds;
     }, 1000);
 
-    document.getElementById("currentTime").innerHTML = hours + ":" + minutes + ":" + seconds;
+    currentTime.innerHTML = hours + ":" + minutes + ":" + seconds;
 }
 
 function setEnd() {
     // Remove any input spaces
-    customHr = (document.querySelector('#customHr').value).replace(/\s/g, '');
-    customMin = (document.querySelector('#customMin').value).replace(/\s/g, '');
-    customSec = (document.querySelector('#customSec').value).replace(/\s/g, '');
+    customHr = custHr.value.replace(/\s/g, '');
+    customMin = custMin.value.replace(/\s/g, '');
+    customSec = custSec.value.replace(/\s/g, '');
     
     // Makes sure input is a valid time
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) { hours = customHr; }
@@ -41,27 +46,27 @@ function setEnd() {
     
     // Handles the changing of an hour
     if (hours >= 23 && minutes >= 42 && current.getMinutes() > 17) {
-        document.getElementById("intermissionEnd").innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+        intermissionEnd.innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     } else if (hours >= 23 && minutes >= 42 && current.getMinutes() <= 17) {
-        document.getElementById("intermissionEnd").innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+        intermissionEnd.innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     } else if (hours < 23 && minutes >= 42 && current.getMinutes() > 17) {
-        document.getElementById("intermissionEnd").innerHTML = (parseInt(hours) + 1) + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+        intermissionEnd.innerHTML = (parseInt(hours) + 1) + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     } else if (hours < 23 && minutes >= 42 && current.getMinutes() <= 17) {
-        document.getElementById("intermissionEnd").innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+        intermissionEnd.innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
     }  else {
-        document.getElementById("intermissionEnd").innerHTML = hours + ":" + (parseInt(minutes) + 18) + ":" + seconds;
+        intermissionEnd.innerHTML = hours + ":" + (parseInt(minutes) + 18) + ":" + seconds;
     }
 }
 
 function timerReset() {
-    document.getElementById("intermissionEnd").innerHTML = "-";
+    intermissionEnd.innerHTML = "-";
     clearInput();
 }
 
 function clearInput() {
-    document.querySelector("#customHr").value = "";
-    document.querySelector("#customMin").value = "";
-    document.querySelector("#customSec").value = "";
+    custHr.value = "";
+    custMin.value = "";
+    custSec.value = "";
 }
 
 function showElt(elt) {
