@@ -14,17 +14,6 @@
     <h1 class="header">
     NHL Logger Tools
   </h1>
-    <div class="streamLanch tool">
-      <h4 class="toolTitle">
-        Stream Launcher
-      </h4>
-      <button id="launchStream" class="btn perEnd" onclick="launch()">
-        Launch Stream
-      </button>
-      <p>
-        To navigate to today's games click the calendar icon then the today button
-      </p>
-    </div>
     <div class="clock tool">
       <h4 class="toolTitle">
         Intermission Clock
@@ -38,12 +27,12 @@
       </p>
       <h2 id="intermissionEnd">-</h2>
       <div class="btnRow">
-        <div id="btnStart" class="btn perEnd">
+        <button id="btnStart" class="btn perEnd">
           Period End
-        </div>
-        <div id="btnReset" class="btn reset">
+        </button>
+        <button id="btnReset" class="btn reset">
           Reset
-        </div>
+        </button>
       </div>
       <div class="customTime">
         <p>(Optional) Enter a custom period end time</p>
@@ -53,6 +42,21 @@
       </div>
     </div>
     <!-- Clock End -->
+    
+    <div class="streamLanch tool">
+      <h4 class="toolTitle">
+        Stream Launcher
+      </h4>
+      <button id="launchStream" class="btn">
+        Launch Streams
+      </button>
+      <p id="launchTips">
+        To navigate to today's games click the calendar icon then the today button
+      </p>
+      <button id="showLaunch" class="btn minimal hidden">
+        Show Stream Launch Button
+      </button>
+    </div> <!-- Stream Launcher End -->
   </div>
   <!-- Container End -->
   <script src="scripts/tools.js"></script>

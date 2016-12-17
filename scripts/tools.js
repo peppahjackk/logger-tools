@@ -1,5 +1,7 @@
 var time, current, hours, minutes, seconds, customHr, customMin, customSec;
-
+var launchBtn = document.getElementById("launchStream");
+var launchTips = document.getElementById("launchTips");
+var showLaunch = document.getElementById("showLaunch");
 
 function addZero(n) {
     return (n < 10 ? "0" + n : n);
@@ -54,14 +56,35 @@ function clearInput() {
     document.querySelector("#customSec").value = "";
 }
 
-function launch() {
-  
-    window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260");
-}
+function showElt(elt) {
+    elt.className = elt.className.replace(/(?:^|\s)hidden(?!\S)/g, '');
+  }
 
+  function hideElt(elt) {
+    if (!elt.className.match(/(?:^|\s)hidden(?!\S)/g)) {
+      if (elt.className.length > 0) {elt.className += " hidden";}
+      else {elt.className += "hidden";
+      }
+    }  
+  }
+
+function launch(num) {
+  for (var i = 0; i < num; i++) {
+    //window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260, left=" + (260 * i) + '"');
+  }
+  hideElt(launchBtn);
+  hideElt(launchTips);
+  showElt(showLaunch);
+}
 
 document.getElementById("btnStart").addEventListener("click", setEnd);
 
 document.getElementById("btnReset").addEventListener("click", timerReset);
 
-//document.getElementById("launchStream").addEventListener("click", launch);
+launchBtn.addEventListener("click", function() {launch(3)});
+
+showLaunch.addEventListener("click", function() {
+  showElt(launchBtn);
+  showElt(launchTips);
+  hideElt(showLaunch);
+});
