@@ -87,7 +87,6 @@ function launch(num) {
   }
   hideElt(launchBtn);
   hideElt(launchFrench);
-  hideElt(launchTips);
   showElt(showLaunch);
 }
 
@@ -101,6 +100,5 @@ launchFrench.addEventListener("click", function(){launch(4)})
 showLaunch.addEventListener("click", function() {
   showElt(launchBtn);
   showElt(launchFrench);
-  showElt(launchTips);
   hideElt(showLaunch);
 });
