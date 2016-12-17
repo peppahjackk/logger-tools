@@ -29,19 +29,24 @@ function timerStart() {
 }
 
 function setEnd() {
+    // Remove any input spaces
     customHr = (document.querySelector('#customHr').value).replace(/\s/g, '');
     customMin = (document.querySelector('#customMin').value).replace(/\s/g, '');
     customSec = (document.querySelector('#customSec').value).replace(/\s/g, '');
-
+    
+    // Makes sure input is a valid time
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) { hours = customHr; }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) { minutes = customMin; }
     if (customSec !== "" && !isNaN(customSec) && customSec < 60) { seconds = customSec; }
-
+    
+    // Handles the changing of an hour
     if (hours >= 23 && minutes >= 42) {
         document.getElementById("intermissionEnd").innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else if (hours < 23 && minutes >= 42) {
+    } else if (hours < 23 && minutes >= 42 && current.getMinutes() > 17) {
         document.getElementById("intermissionEnd").innerHTML = (parseInt(hours) + 1) + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else {
+    } else if (hours < 23 && minutes >= 42 && current.getMinutes() <= 17){
+        document.getElementById("intermissionEnd").innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+    }  else {
         document.getElementById("intermissionEnd").innerHTML = hours + ":" + (parseInt(minutes) + 18) + ":" + seconds;
     }
 }
