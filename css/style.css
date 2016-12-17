@@ -78,10 +78,6 @@ input {
   border-radius: 0 0 3px;
 }
 
-#launchStream {
-  margin-top: .75em;
-}
-
 .customTime input {
   width: 1.85em;
   margin: 0.5rem 0.2rem;
@@ -121,6 +117,10 @@ input {
   box-shadow: #303030 0px 3px;
 }
 
+.btn-small {
+  font-size: .75em;
+}
+
 .reset {
   background-color: #DDDDDD;
   color: #1c1c1c;
@@ -143,6 +143,9 @@ input {
   background-color: rgba(255,255,255, .05);
 }
 
+#launchStream {
+  margin-top: 1em;
+}
 /* Button styling End */
 
 

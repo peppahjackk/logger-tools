@@ -1,5 +1,6 @@
 var time, current, hours, minutes, seconds, customHr, customMin, customSec;
 var launchBtn = document.getElementById("launchStream");
+var launchFrench = document.getElementById("launchFrench");
 var launchTips = document.getElementById("launchTips");
 var showLaunch = document.getElementById("showLaunch");
 
@@ -70,9 +71,10 @@ function showElt(elt) {
 
 function launch(num) {
   for (var i = 0; i < num; i++) {
-    //window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260, left=" + (260 * i) + '"');
+    window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260, left=" + (260 * i) + '"');
   }
   hideElt(launchBtn);
+  hideElt(launchFrench);
   hideElt(launchTips);
   showElt(showLaunch);
 }
@@ -82,9 +84,11 @@ document.getElementById("btnStart").addEventListener("click", setEnd);
 document.getElementById("btnReset").addEventListener("click", timerReset);
 
 launchBtn.addEventListener("click", function() {launch(3)});
+launchFrench.addEventListener("click", function(){launch(4)})
 
 showLaunch.addEventListener("click", function() {
   showElt(launchBtn);
+  showElt(launchFrench);
   showElt(launchTips);
   hideElt(showLaunch);
 });
