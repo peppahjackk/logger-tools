@@ -1,5 +1,6 @@
 var time, current, hours, minutes, seconds, customHr, customMin, customSec;
 
+
 function addZero(n) {
     return (n < 10 ? "0" + n : n);
 }
@@ -53,7 +54,14 @@ function clearInput() {
     document.querySelector("#customSec").value = "";
 }
 
+function launch() {
+  
+    window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260");
+}
+
 
 document.getElementById("btnStart").addEventListener("click", setEnd);
 
 document.getElementById("btnReset").addEventListener("click", timerReset);
+
+//document.getElementById("launchStream").addEventListener("click", launch);

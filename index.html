@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NHL Logger Clock</title>
+  <title>NHL Logger Tools</title>
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
 </head>
@@ -12,10 +12,23 @@
 <body onload="timerStart()">
   <div class="container">
     <h1 class="header">
-    NHL Logger Clock
+    NHL Logger Tools
   </h1>
-    <div class="clock">
-
+    <div class="streamLanch tool">
+      <h4 class="toolTitle">
+        Stream Launcher
+      </h4>
+      <button id="launchStream" class="btn perEnd" onclick="launch()">
+        Launch Stream
+      </button>
+      <p>
+        To navigate to today's games click the calendar icon then the today button
+      </p>
+    </div>
+    <div class="clock tool">
+      <h4 class="toolTitle">
+        Intermission Clock
+      </h4>
       <p>
         It is currently:
       </p>
@@ -42,7 +55,7 @@
     <!-- Clock End -->
   </div>
   <!-- Container End -->
-  <script src="scripts/clock.js"></script>
+  <script src="scripts/tools.js"></script>
 </body>
 
 </html>

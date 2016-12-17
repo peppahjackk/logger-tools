@@ -61,6 +61,27 @@ input {
   font-size: 1.15em;
 }
 
+.tool {
+  border: 2px solid #333;
+  border-radius: 3px;
+  position: relative;
+  padding-top: 2em;
+  max-width:300px;
+}
+
+.toolTitle {
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  padding: .5em;
+  margin: 0;
+  border-radius: 0 0 3px;
+}
+
+#launchStream {
+  margin-top: .75em;
+}
+
 .customTime input {
   width: 1.85em;
   margin: 0.5rem 0.2rem;
