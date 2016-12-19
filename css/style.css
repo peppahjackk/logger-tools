@@ -30,7 +30,7 @@ body:after {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  position:relative;
+  position: relative;
 }
 
 .btnRow {
@@ -77,6 +77,19 @@ input {
   border-radius: 0 0 3px;
 }
 
+.toolToggle {
+  right: 0;
+  border-radius: 0 0 0 3px;
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px inset #ededed;
+  font-size: .8em;
+}
+
+.toolToggle:hover {
+  cursor: pointer;
+}
+
 .customTime input {
   width: 1.85em;
   margin: 0.5rem 0.2rem;
@@ -101,7 +114,7 @@ input {
   border-radius: 3px;
   color: #EDEDED;
   box-shadow: #2D374D 0px 6px;
-  margin-bottom: calc(0.5em + 6px);
+  margin-bottom: calc(0.5em+ 6px);
   font-size: 1em;
   font-family: Raleway, sans-serif;
 }
@@ -130,21 +143,11 @@ input {
   background-color: #ECECEC;
 }
 
-.minimal {
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px inset #EDEDED;
-  box-shadow: rgba(255, 255, 255, .2) 0px 6px;
-  font-size: .75em;
-  margin: 1.5em;s
-}
-
-.minimal:hover {
-  background-color: rgba(255,255,255, .05);
-}
-
 #launchStream {
   margin-top: 1em;
 }
+
+
 /* Button styling End */
 
 
