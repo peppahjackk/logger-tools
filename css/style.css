@@ -100,7 +100,7 @@ input {
 
 .mini-toggle {
   padding: .5em;
-  margin: .2em 0 0 0;
+  margin: .2em 0 .5em 0;
   border-radius: 0 0 3px 3px;
   font-size: .75em;
 }
@@ -117,19 +117,24 @@ input {
 .breakTracker {
   padding-top: 3.275em;
   float: right;
+  clear:right;
 }
 
 #innerTracker {
   margin: 0;
 }
 
+#innerTracker:not(button) {
+  text-align: left;
+}
+
+#innerTracker input {
+  margin: .25em .5em;
+}
+
 .streamLaunch {
   float: left;
   clear: left;
-}
-
-#breakTracker {
-  text-align: left;
 }
 
 #launchStream {
@@ -173,7 +178,7 @@ input {
 
 .btn-mini {
   width: 80%;
-  margin: 0 0 calc(1em + 6px) 0;
+  margin: .5em 0 calc(1em + 6px) 0;
   padding: .5em 0;
   font-size: .75em;
 }
