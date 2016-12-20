@@ -33,12 +33,6 @@ body:after {
   position: relative;
 }
 
-.btnRow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 h2,
 h3 {
   font-family: sans-serif;
@@ -60,12 +54,26 @@ input {
   font-size: 1.15em;
 }
 
+.hidden {
+  display: none;
+}
+
+.header {
+  border-bottom: 4px solid #ededed;
+  padding: .2em 0;
+}
+
 .tool {
   border: 2px solid #333;
   border-radius: 3px;
   position: relative;
   padding-top: 2em;
-  max-width: 300px;
+  max-width: 245px;
+  margin: .25em;
+}
+
+.lrgTool {
+  min-width: 240px;
 }
 
 .toolTitle {
@@ -83,25 +91,49 @@ input {
   text-decoration: underline;
   background-color: rgba(255, 255, 255, 0);
   border: 1px inset #ededed;
-  font-size: .8em;
+  font-size: .65em;
 }
 
 .toolToggle:hover {
   cursor: pointer;
 }
 
+.mini-toggle {
+  padding: .5em;
+  margin: .2em 0 0 0;
+  border-radius: 0 0 3px 3px;
+  font-size: .75em;
+}
+
 .customTime input {
-  width: 1.85em;
+  width: 2.1em;
   margin: 0.5rem 0.2rem;
 }
 
-.hidden {
-  display: none;
+.clock {
+  float: left;
 }
 
-.header {
-  border-bottom: 4px solid #ededed;
-  padding: .2em 0;
+.breakTracker {
+  padding-top: 3.275em;
+  float: right;
+}
+
+#innerTracker {
+  margin: 0;
+}
+
+.streamLaunch {
+  float: left;
+  clear: left;
+}
+
+#breakTracker {
+  text-align: left;
+}
+
+#launchStream {
+  margin-top: 1em;
 }
 
 
@@ -129,7 +161,20 @@ input {
   box-shadow: #303030 0px 3px;
 }
 
+.btnRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .btn-small {
+  font-size: .75em;
+}
+
+.btn-mini {
+  width: 80%;
+  margin: 0 0 calc(1em + 6px) 0;
+  padding: .5em 0;
   font-size: .75em;
 }
 
@@ -143,10 +188,6 @@ input {
   background-color: #ECECEC;
 }
 
-#launchStream {
-  margin-top: 1em;
-}
-
 
 /* Button styling End */
 
@@ -156,3 +197,12 @@ input {
 .quizInput {
   width: 10em;
 }
+
+
+/* End Quiz Styling */
+
+
+/* Mobile Optimization */
+
+
+/* End Mobile Optimization */

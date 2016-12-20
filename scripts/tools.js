@@ -6,6 +6,8 @@ function globalFunction() {
   var toggleStreams = document.getElementById("toggleStreams");
   var toggleClock = document.getElementById("toggleClock");
   var innerClock = document.getElementById("innerClock");
+  var toggleTracker = document.getElementById("toggleTracker");
+  var innerTracker = document.getElementById("innerTracker");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
   var custSec = document.getElementById("customSec");
@@ -125,6 +127,10 @@ function globalFunction() {
   });
   toggleClock.addEventListener("click", function() {
     toggleView([innerClock], toggleClock);
+  });
+  
+  toggleTracker.addEventListener("click", function() {
+    toggleView([innerTracker], toggleTracker);
   });
 
   timerStart();

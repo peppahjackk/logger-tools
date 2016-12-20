@@ -14,7 +14,7 @@
     <h1 class="header">
     NHL Logger Tools
   </h1>
-    <div class="clock tool">
+    <div class="clock tool lrgTool">
       <h4 class="toolTitle">
         Intermission Clock
       </h4>
@@ -48,7 +48,36 @@
     </div>
     <!-- Clock End -->
 
-    <div class="streamLaunch tool">
+    <div class="breakTracker tool">
+      <h4 class="toolTitle">
+      Break Tracker
+    </h4>
+      <div id="toggleTracker" class="mini-toggle toolToggle">
+        - Hide Tool
+      </div>
+      <div id="innerTracker">
+        <form id="breakTracker">
+          <label>Period 1</label><br>
+          <input type="checkbox" name="brk" value="1-14">14<br>
+          <input type="checkbox" name="brk" value="1-10">10<br>
+          <input type="checkbox" name="brk" value="1-6">6<br>
+          <br><label>Period 2</label><br>
+          <input type="checkbox" name="brk" value="2-14">14<br>
+          <input type="checkbox" name="brk" value="2-10">10<br>
+          <input type="checkbox" name="brk" value="2-6">6<br>
+          <br><label>Period 3</label><br>
+          <input type="checkbox" name="brk" value="3-14">14<br>
+          <input type="checkbox" name="brk" value="3-10">10<br>
+          <input type="checkbox" name="brk" value="3-6">6<br>
+        </form>
+        <button class="btn btn-mini reset">
+        Reset
+      </button>
+      </div>
+    </div>
+    <!-- Break Tracker End -->
+
+    <div class="streamLaunch tool lrgTool">
       <h4 class="toolTitle">
         Stream Launcher
       </h4>
@@ -66,6 +95,7 @@
       </p>
     </div>
     <!-- Stream Launcher End -->
+
   </div>
   <!-- Container End -->
   <script src="scripts/tools.js"></script>
