@@ -100,7 +100,7 @@ input {
 
 .mini-toggle {
   padding: .5em;
-  margin: .2em 0 .5em 0;
+  margin: .2em 0 0 0;
   border-radius: 0 0 3px 3px;
   font-size: .75em;
 }
@@ -121,7 +121,7 @@ input {
 }
 
 #innerTracker {
-  margin: 0;
+  margin: .5em 0 0 0;
 }
 
 #innerTracker:not(button) {

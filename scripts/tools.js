@@ -8,6 +8,7 @@ function globalFunction() {
   var innerClock = document.getElementById("innerClock");
   var toggleTracker = document.getElementById("toggleTracker");
   var innerTracker = document.getElementById("innerTracker");
+  var clearTracker = document.getElementById("clearTracker");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
   var custSec = document.getElementById("customSec");
@@ -93,6 +94,15 @@ function globalFunction() {
     }
     toggleView([launchBtn, launchFrench], toggleStreams);
   }
+  
+  // Unchecks all checkboxes
+  function clearChecks() {
+    var checks = document.getElementsByTagName('input');
+    
+    for (var i = 0; i < checks.length; i++) {
+      if (checks[i].type == 'checkbox') {checks[i].checked = false;}
+    }
+  }
 
   // Toggles a hidden class (actually display: none) for the passed elements in an array and switches the toggle button text
   function toggleView(arr, btn) {
@@ -121,6 +131,8 @@ function globalFunction() {
   launchFrench.addEventListener("click", function() {
     launch(4)
   })
+  
+  clearTracker.addEventListener("click", clearChecks);
 
   toggleStreams.addEventListener("click", function() {
     toggleView([launchBtn, launchFrench], toggleStreams);
@@ -130,10 +142,11 @@ function globalFunction() {
   });
   
   toggleTracker.addEventListener("click", function() {
-    toggleView([innerTracker], toggleTracker);
+    toggleView([innerTracker, clearTracker], toggleTracker);
   });
 
   timerStart();
+  clearChecks();
 }
 
 globalFunction();
