@@ -54,6 +54,11 @@ input {
   font-size: 1.15em;
 }
 
+input:checked + label {
+  text-decoration: line-through;
+  color: #777;
+}
+
 .hidden {
   display: none;
 }
