@@ -63,6 +63,10 @@ input:checked + label {
   display: none;
 }
 
+.wrapper {
+  margin: 0;
+}
+
 .header {
   border-bottom: 4px solid #ededed;
   padding: .2em 0;
@@ -108,6 +112,12 @@ input:checked + label {
   margin: .2em 0 0 0;
   border-radius: 0 0 3px 3px;
   font-size: .75em;
+}
+
+.xs-toggle {
+  padding: .15em .5em;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 .customTime input {

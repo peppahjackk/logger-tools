@@ -6,14 +6,20 @@ function globalFunction() {
   var toggleStreams = document.getElementById("toggleStreams");
   var toggleClock = document.getElementById("toggleClock");
   var innerClock = document.getElementById("innerClock");
-  var toggleTracker = document.getElementById("toggleTracker");
-  var innerTracker = document.getElementById("innerTracker");
-  var clearTracker = document.getElementById("clearTracker");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
   var custSec = document.getElementById("customSec");
   var intermissionEnd = document.getElementById("intermissionEnd");
   var currentTime = document.getElementById("currentTime");
+  var toggleTracker = document.getElementById("toggleTracker");
+  var innerTracker = document.getElementById("innerTracker");
+  var clearTracker = document.getElementById("clearTracker");
+  var toggleP1Tracker = document.getElementById("p1-hide");
+  var p1Tracker = document.getElementById("p1");
+  var toggleP2Tracker = document.getElementById("p2-hide");
+  var p2Tracker = document.getElementById("p2");
+  var toggleP3Tracker = document.getElementById("p3-hide");
+  var p3Tracker = document.getElementById("p3");
 
   // Adds a zero to single digit numbers
   function addZero(n) {
@@ -109,15 +115,23 @@ function globalFunction() {
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].className.match(/(?:^|\s)hidden(?!\S)/g)) {
         arr[i].className = arr[i].className.replace(/(?:^|\s)hidden(?!\S)/g, '')
-        btn.innerHTML = "- Hide Tool"
       } else if (arr[i].className.length > 0) {
         arr[i].className += " hidden";
-        btn.innerHTML = "+ Show Tool";
       } else {
         arr[i].className += 'hidden';
-        btn.innerHTML = "+ Show Tool";
       }
     }
+    if (btn.innerHTML.toLowerCase().match(/(?:^|\s)show(?!\S)/g)) {
+        btn.innerHTML = "- Hide Tool";
+      } else if (btn.innerHTML.toLowerCase().match(/(?:^|\s)hide(?!\S)/g)) {
+        btn.innerHTML = "+ Show Tool";
+      } else if (btn.innerHTML.length = 1 && btn.innerHTML == "-") {
+        btn.innerHTML = "+";
+      } else if (btn.innerHTML.length = 1 && btn.innerHTML == "+") {
+        btn.innerHTML = "-";
+      } else {
+        throw error;
+      }
   }
 
   // Event Listeners
@@ -143,6 +157,18 @@ function globalFunction() {
   
   toggleTracker.addEventListener("click", function() {
     toggleView([innerTracker, clearTracker], toggleTracker);
+  });
+
+  toggleP1Tracker.addEventListener("click", function() {
+    toggleView([p1], toggleP1Tracker)
+  });
+
+  toggleP2Tracker.addEventListener("click", function() {
+    toggleView([p2], toggleP2Tracker)
+  });
+
+  toggleP3Tracker.addEventListener("click", function() {
+    toggleView([p3], toggleP3Tracker)
   });
 
   timerStart();
