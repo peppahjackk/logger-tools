@@ -147,6 +147,10 @@ input:checked + label {
   margin: .25em .5em;
 }
 
+.highlight-tracker {
+  float:right;
+}
+
 .streamLaunch {
   float: left;
   clear: left;
