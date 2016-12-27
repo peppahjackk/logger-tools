@@ -1,5 +1,5 @@
 function globalFunction() {
-  var time, current, hours, minutes, seconds, customHr, customMin, customSec;
+  var time, current, hours, minutes, seconds, customHr, customMin;
   var launchBtn = document.getElementById("launchStream");
   var launchFrench = document.getElementById("launchFrench");
   var launchTips = document.getElementById("launchTips");
@@ -8,7 +8,6 @@ function globalFunction() {
   var innerClock = document.getElementById("innerClock");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
-  var custSec = document.getElementById("customSec");
   var intermissionEnd = document.getElementById("intermissionEnd");
   var currentTime = document.getElementById("currentTime");
   var toggleTracker = document.getElementById("toggleTracker");
@@ -30,7 +29,6 @@ function globalFunction() {
   function timerStart() {
     custHr.value = "";
     custMin.value = "";
-    custSec.value = "";
     current = new Date();
     hours = addZero(current.getHours());
     minutes = addZero(current.getMinutes());
@@ -53,7 +51,6 @@ function globalFunction() {
     // Remove any white space in input
     customHr = custHr.value.replace(/\s/g, '');
     customMin = custMin.value.replace(/\s/g, '');
-    customSec = custSec.value.replace(/\s/g, '');
 
     // Makes sure input is a valid time
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) {
@@ -61,9 +58,6 @@ function globalFunction() {
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
       minutes = customMin;
-    }
-    if (customSec !== "" && !isNaN(customSec) && customSec < 60) {
-      seconds = customSec;
     }
 
     // Handles the changing of an hour
@@ -90,7 +84,6 @@ function globalFunction() {
   function clearInput() {
     custHr.value = "";
     custMin.value = "";
-    custSec.value = "";
   }
 
   // Launches X number of streams for 1920x1080
