@@ -2,157 +2,169 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NHL Logger Tools</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NHL Logger Tools</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="header">
+  <div class="container">
+    <h1 class="header">
     NHL Logger Tools
   </h1>
-        <div class="clock tool lrgTool">
-            <h4 class="toolTitle">
+    <div class="clock tool lrgTool">
+      <h4 class="toolTitle">
         Intermission Clock
       </h4>
-            <div id="toggleClock" class="toolTitle toolToggle">
-                - Hide Tool
-            </div>
-            <p>
-                It is currently:
-            </p>
-            <h3 id="currentTime">-</h3>
-            <div id="innerClock">
-                <p>
-                    The intermission will end at:
-                </p>
-                <h2 id="intermissionEnd">-</h2>
-                <div class="btnRow">
-                    <button id="btnStart" class="btn perEnd">
+      <div id="toggleClock" class="toolTitle toolToggle">
+        - Hide Tool
+      </div>
+      <p>
+        It is currently:
+      </p>
+      <h3 id="currentTime">-</h3>
+      <div id="innerClock">
+        <p>
+          The intermission will end at:
+        </p>
+        <h2 id="intermissionEnd">-</h2>
+        <div class="btnRow">
+          <button id="btnStart" class="btn perEnd">
                         Period End
                     </button>
-                    <button id="btnReset" class="btn reset">
+          <button id="btnReset" class="btn reset">
                         Reset
                     </button>
-                </div>
-                <div class="customTime">
-                    <p>(Optional) Enter a custom period end time</p>
-                    <input type="text" id="customHr" placeholder="HR">
-                    <input type="text" id="customMin" placeholder="MIN">
-                </div>
-            </div>
         </div>
-        <!-- Clock End -->
-        <div class="highlight-tracker tool">
-            <h4 class="toolTitle">Highlight Tracker</h4>
-            <div id="toggleHighTrack" class="mini-toggle toolToggle">
-            - Hide Tool</div>
-            <div id="inner-h-tracker">
-            <div>
-                <p id="highlight-home">0</p>
-                <div class="btn perEnd">Home</div>
-            </div>
-            <div>
-                <p id="highlight-away">0</p>
-                <div class="btn perEnd">Away</div>
-            </div>
-            </div>
+        <div class="customTime">
+          <p>(Optional) Enter a custom period end time</p>
+          <input type="text" id="customHr" placeholder="HR">
+          <input type="text" id="customMin" placeholder="MIN">
         </div>
-        <!-- Highlight Tracker end -->
+      </div>
+    </div>
+    <!-- Clock End -->
+    <div class="highlight-tracker tool">
+      <h4 class="toolTitle">Highlight Tracker</h4>
+      <div id="toggleHTracker" class="mini-toggle toolToggle">
+        - Hide Tool</div>
+      <div id="inner-h-tracker">
+        <div class="row">
+          <p>
+            Home
+          </p>
+          <p>
+            Away
+          </p>
+        </div>
+        <div class="row highlight-total">
+          <p id="highlight-home">0</p>
+          <p id="highlight-away">0</p>
+        </div>
+        <div class="row btn-row-2">
+          <div class="btn btn-2 btn-2-top" id="home-tracker-plus">+</div>
+          <div class="btn btn-2 btn-2-top" id="away-tracker-plus">+</div>
+        </div>
+        <div class="row btn-row-2">
+          <div class="btn btn-2 btn-2-bot reset" id="home-tracker-minus">-</div>
+          <div class="btn btn-2 btn-2-bot reset" id="away-tracker-minus">-</div>
+        </div>
+      </div>
+    </div>
+    <!-- Highlight Tracker end -->
 
-        <div class="breakTracker tool">
-            <h4 class="toolTitle">
+    <div class="breakTracker tool">
+      <h4 class="toolTitle">
       Breaks &amp; Alerts
     </h4>
-            <div id="toggleTracker" class="mini-toggle toolToggle">
-                - Hide Tool
-            </div>
-            <div id="innerTracker">
-                <p>
-                    Period 1<span id="p1-hide" class="toolToggle xs-toggle">-</span>
-                </p>
-                <div id="p1" class="wrapper">
-                    <input type="checkbox" id="1-pp" />
-                    <label for="1-pp">PP</label>
-                    <br>
-                    <input type="checkbox" id="1-14" />
-                    <label for="1-14">14</label>
-                    <br>
-                    <input type="checkbox" id="1-10" />
-                    <label for="1-10">10</label>
-                    <br>
-                    <input type="checkbox" id="1-6" />
-                    <label for="1-6">6</label>
-                    <br>
-                </div>
-                <p>
-                    Period 2<span id="p2-hide" class="toolToggle xs-toggle">-</span>
-                </p>
-                <div id="p2" class="wrapper">
-                <input type="checkbox" id="2-pp" />
-                <label for="2-pp">PP</label>
-                <br>
-                <input type="checkbox" id="2-14" />
-                <label for="2-14">14</label>
-                <br>
-                <input type="checkbox" id="2-10" />
-                <label for="2-10">10</label>
-                <br>
-                <input type="checkbox" id="2-6" />
-                <label for="2-6">6</label>
-                <br>
-                </div>
-                <p>
-                    Period 3<span id="p3-hide" class="toolToggle xs-toggle">-</span>
-                </p>
-                <div id="p3" class="wrapper">
-                <input type="checkbox" id="3-pp" />
-                <label for="3-pp">PP</label>
-                <br>
-                <input type="checkbox" id="3-14" />
-                <label for="3-14">14</label>
-                <br>
-                <input type="checkbox" id="3-10" />
-                <label for="3-10">10</label>
-                <br>
-                <input type="checkbox" id="8-rem" />
-                <label for="8-rem">8 Rem.</label>
-                <br>
-                <input type="checkbox" id="3-6" />
-                <label for="3-6">6</label>
-                <br>
-                </div>
-            </div>
-            <!-- Inner Tracker End -->
-            <button id="clearTracker" class="btn btn-mini reset">
+      <div id="toggleTracker" class="mini-toggle toolToggle">
+        - Hide Tool
+      </div>
+      <div id="innerTracker">
+        <p>
+          Period 1<span id="p1-hide" class="toolToggle xs-toggle">-</span>
+        </p>
+        <div id="p1" class="wrapper">
+          <input type="checkbox" id="1-pp" />
+          <label for="1-pp">PP</label>
+          <br>
+          <input type="checkbox" id="1-14" />
+          <label for="1-14">14</label>
+          <br>
+          <input type="checkbox" id="1-10" />
+          <label for="1-10">10</label>
+          <br>
+          <input type="checkbox" id="1-6" />
+          <label for="1-6">6</label>
+          <br>
+        </div>
+        <p>
+          Period 2<span id="p2-hide" class="toolToggle xs-toggle">-</span>
+        </p>
+        <div id="p2" class="wrapper">
+          <input type="checkbox" id="2-pp" />
+          <label for="2-pp">PP</label>
+          <br>
+          <input type="checkbox" id="2-14" />
+          <label for="2-14">14</label>
+          <br>
+          <input type="checkbox" id="2-10" />
+          <label for="2-10">10</label>
+          <br>
+          <input type="checkbox" id="2-6" />
+          <label for="2-6">6</label>
+          <br>
+        </div>
+        <p>
+          Period 3<span id="p3-hide" class="toolToggle xs-toggle">-</span>
+        </p>
+        <div id="p3" class="wrapper">
+          <input type="checkbox" id="3-pp" />
+          <label for="3-pp">PP</label>
+          <br>
+          <input type="checkbox" id="3-14" />
+          <label for="3-14">14</label>
+          <br>
+          <input type="checkbox" id="3-10" />
+          <label for="3-10">10</label>
+          <br>
+          <input type="checkbox" id="8-rem" />
+          <label for="8-rem">8 Rem.</label>
+          <br>
+          <input type="checkbox" id="3-6" />
+          <label for="3-6">6</label>
+          <br>
+        </div>
+      </div>
+      <!-- Inner Tracker End -->
+      <button id="clearTracker" class="btn btn-mini reset">
                 Reset
             </button>
-        </div>
-        <!-- Break Tracker End -->
-        <div class="streamLaunch tool lrgTool">
-            <h4 class="toolTitle">
+    </div>
+    <!-- Break Tracker End -->
+    <div class="streamLaunch tool lrgTool">
+      <h4 class="toolTitle">
         Stream Launcher
       </h4>
-            <div id="toggleStreams" class="toolTitle toolToggle">
-              - Hide Tool
-            </div>
-            <button id="launchStream" class="btn btn-small">
+      <div id="toggleStreams" class="toolTitle toolToggle">
+        - Hide Tool
+      </div>
+      <button id="launchStream" class="btn btn-small">
                 Launch without French
             </button>
-            <button id="launchFrench" class="btn btn-small reset">
+      <button id="launchFrench" class="btn btn-small reset">
                 Launch with French
             </button>
-            <p id="launchTips">
-                To navigate to today's games click the calendar icon then the today button
-            </p>
-        </div>
-        <!-- Stream Launcher End -->
+      <p id="launchTips">
+        To navigate to today's games click the calendar icon then the today button
+      </p>
     </div>
-    <!-- Container End -->
-    <script src="scripts/tools.js"></script>
+    <!-- Stream Launcher End -->
+  </div>
+  <!-- Container End -->
+  <script src="scripts/tools.js"></script>
 </body>
 
 </html>

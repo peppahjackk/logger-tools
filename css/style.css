@@ -54,7 +54,7 @@ input {
   font-size: 1.15em;
 }
 
-input:checked + label {
+input:checked+ label {
   text-decoration: line-through;
   color: #777;
 }
@@ -67,6 +67,12 @@ input:checked + label {
   margin: 0;
 }
 
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin:0;
+}
+
 .header {
   border-bottom: 4px solid #ededed;
   padding: .2em 0;
@@ -76,13 +82,15 @@ input:checked + label {
   border: 2px solid #333;
   border-radius: 3px;
   position: relative;
-  padding-top: 2em;
+  padding-top: 3.275em;
   max-width: 245px;
+  min-width: 114px;
   margin: .25em;
 }
 
 .lrgTool {
-  min-width: 240px;
+  width: 230px;
+  padding-top: 2.25em;
 }
 
 .toolTitle {
@@ -132,7 +140,7 @@ input:checked + label {
 .breakTracker {
   padding-top: 3.275em;
   float: right;
-  clear:right;
+  clear: right;
 }
 
 #innerTracker {
@@ -148,11 +156,22 @@ input:checked + label {
 }
 
 .highlight-tracker {
-  float:right;
+  float: right;
+}
+
+#inner-h-tracker {
+  margin: 0;
+}
+
+#inner-h-tracker p {
+  font-size: .925em;
+}
+
+.highlight-total {
+  margin: 0 0 .5em 0;
 }
 
 .streamLaunch {
-  float: left;
   clear: left;
 }
 
@@ -197,7 +216,7 @@ input:checked + label {
 
 .btn-mini {
   width: 80%;
-  margin: .5em 0 calc(1em + 6px) 0;
+  margin: .5em 0 calc(1em+ 6px) 0;
   padding: .5em 0;
   font-size: .75em;
 }
@@ -212,6 +231,25 @@ input:checked + label {
   background-color: #ECECEC;
 }
 
+.btn-row-2 {
+  margin: 0;
+}
+
+.btn-2 {
+  margin:0;
+  padding: .5em .75em;
+}
+
+.btn-2-top {
+  border-radius: 3px 3px 0 0;
+  z-index: 1;
+}
+
+.btn-2-bot {
+  border-radius: 0 0 3px 3px;
+  margin-bottom: calc(.5em + 6px);
+  z-index: 2;
+}
 
 /* Button styling End */
 

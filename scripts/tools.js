@@ -1,15 +1,25 @@
 function globalFunction() {
   var time, current, hours, minutes, seconds, customHr, customMin;
-  var launchBtn = document.getElementById("launchStream");
-  var launchFrench = document.getElementById("launchFrench");
-  var launchTips = document.getElementById("launchTips");
-  var toggleStreams = document.getElementById("toggleStreams");
+  
+  // Intermission Clock
   var toggleClock = document.getElementById("toggleClock");
   var innerClock = document.getElementById("innerClock");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
   var intermissionEnd = document.getElementById("intermissionEnd");
   var currentTime = document.getElementById("currentTime");
+  
+  // Highlight Tracker
+  var toggleHTracker = document.getElementById("toggleHTracker");
+  var innerHTracker = document.getElementById("inner-h-tracker");
+  var highlightHome = document.getElementById("highlight-home");
+  var highlightAway = document.getElementById("highlight-away");
+  var homePlus = document.getElementById("home-tracker-plus");
+  var awayPlus = document.getElementById("away-tracker-plus");
+  var homeMinus = document.getElementById("home-tracker-minus");
+  var awayMinus = document.getElementById("away-tracker-minus");
+  
+  // Break Tracker
   var toggleTracker = document.getElementById("toggleTracker");
   var innerTracker = document.getElementById("innerTracker");
   var clearTracker = document.getElementById("clearTracker");
@@ -19,7 +29,14 @@ function globalFunction() {
   var p2Tracker = document.getElementById("p2");
   var toggleP3Tracker = document.getElementById("p3-hide");
   var p3Tracker = document.getElementById("p3");
+  
+  // Stream Launcher
+  var launchBtn = document.getElementById("launchStream");
+  var launchFrench = document.getElementById("launchFrench");
+  var launchTips = document.getElementById("launchTips");
+  var toggleStreams = document.getElementById("toggleStreams");
 
+  
   // Adds a zero to single digit numbers
   function addZero(n) {
     return (n < 10 ? "0" + n : n);
@@ -126,26 +143,58 @@ function globalFunction() {
         throw error;
       }
   }
+  
+  // Adds and subtracts from given args
+  function plusOne(num) {
+    num.innerHTML = parseInt(num.innerHTML) + 1;
+  }
+  
+  function minusOne(num) {
+    num.innerHTML = parseInt(num.innerHTML) - 1;
+  }
 
   // Event Listeners
   document.getElementById("btnStart").addEventListener("click", setEnd);
 
   document.getElementById("btnReset").addEventListener("click", timerReset);
 
+  clearTracker.addEventListener("click", clearChecks);
+  
+  homePlus.addEventListener("click", function() {
+    plusOne(highlightHome);
+  });
+  
+  awayPlus.addEventListener("click", function() {
+    plusOne(highlightAway);
+  });
+  
+  homeMinus.addEventListener("click", function() {
+    minusOne(highlightHome);
+  });
+  
+  awayMinus.addEventListener("click", function() {
+    minusOne(highlightAway);
+  });
+  
   launchBtn.addEventListener("click", function() {
     launch(3)
   });
+  
   launchFrench.addEventListener("click", function() {
     launch(4)
   })
   
-  clearTracker.addEventListener("click", clearChecks);
-
+  
+  // Toggles view for tools
   toggleStreams.addEventListener("click", function() {
     toggleView([launchBtn, launchFrench], toggleStreams);
   });
   toggleClock.addEventListener("click", function() {
     toggleView([innerClock], toggleClock);
+  });
+  
+  toggleHTracker.addEventListener("click", function() {
+    toggleView([innerHTracker], toggleHTracker);
   });
   
   toggleTracker.addEventListener("click", function() {
