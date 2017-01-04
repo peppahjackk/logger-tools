@@ -157,6 +157,7 @@ input:checked+ label {
 
 .highlight-tracker {
   float: right;
+  clear:right;
 }
 
 #inner-h-tracker {
