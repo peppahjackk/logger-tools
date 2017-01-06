@@ -1,0 +1,281 @@
+body * {
+  margin: 0.5rem;
+}
+
+body {
+  background: url('../img/bg.jpg');
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #ededed;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body:after {
+  background-color: #1C1C1C;
+  opacity: .5;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.container {
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+}
+
+h2,
+h3 {
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+p {
+  margin: .5em;
+}
+
+input {
+  font-size: 1.15em;
+}
+
+input:checked+ label {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  margin: 0;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin:0;
+}
+
+.header {
+  border-bottom: 4px solid #ededed;
+  padding: .2em 0;
+}
+
+.tool {
+  border: 2px solid #333;
+  border-radius: 3px;
+  position: relative;
+  padding-top: 3.275em;
+  max-width: 245px;
+  min-width: 114px;
+  margin: .25em;
+}
+
+.lrgTool {
+  width: 230px;
+  padding-top: 2.25em;
+}
+
+.toolTitle {
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  padding: .5em;
+  margin: 0;
+  border-radius: 0 0 3px;
+}
+
+.toolToggle {
+  right: 0;
+  border-radius: 0 0 0 3px;
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px inset #ededed;
+  font-size: .65em;
+}
+
+.toolToggle:hover {
+  cursor: pointer;
+}
+
+.mini-toggle {
+  padding: .5em;
+  margin: .2em 0 0 0;
+  border-radius: 0 0 3px 3px;
+  font-size: .75em;
+}
+
+.xs-toggle {
+  padding: .15em .5em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.customTime input {
+  width: 1.8em;
+  margin: 0.5rem 0.2rem;
+}
+
+.clock {
+  float: left;
+}
+
+.breakTracker {
+  padding-top: 3.275em;
+  float: right;
+  clear: right;
+}
+
+#innerTracker {
+  margin: .5em 0 0 0;
+}
+
+#innerTracker:not(button) {
+  text-align: left;
+}
+
+#innerTracker input {
+  margin: .25em .5em;
+}
+
+.highlight-tracker {
+  float: right;
+  clear:right;
+}
+
+#inner-h-tracker {
+  margin: 0;
+}
+
+#inner-h-tracker p {
+  font-size: .925em;
+}
+
+.highlight-total {
+  margin: 0 0 .5em 0;
+}
+
+.streamLaunch {
+  clear: left;
+}
+
+#launchStream {
+  margin-top: 1em;
+}
+
+
+/* Button Styling start */
+
+.btn {
+  background-color: #5A71A3;
+  padding: 10px;
+  border: 0px;
+  border-radius: 3px;
+  color: #EDEDED;
+  box-shadow: #2D374D 0px 6px;
+  margin-bottom: calc(0.5em+ 6px);
+  font-size: 1em;
+  font-family: Raleway, sans-serif;
+}
+
+.btn:hover {
+  background-color: #637EBA;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: #303030 0px 3px;
+}
+
+.btnRow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.btn-small {
+  font-size: .75em;
+}
+
+.btn-mini {
+  width: 80%;
+  margin: .5em 0 calc(1em+ 6px) 0;
+  padding: .5em 0;
+  font-size: .75em;
+}
+
+.reset {
+  background-color: #DDDDDD;
+  color: #1c1c1c;
+  box-shadow: #474747 0px 6px;
+}
+
+.reset:hover {
+  background-color: #ECECEC;
+}
+
+.btn-row-2 {
+  margin: 0;
+}
+
+.btn-2 {
+  margin:0;
+  padding: .5em .75em;
+}
+
+.btn-2-top {
+  border-radius: 3px 3px 0 0;
+  z-index: 1;
+}
+
+.btn-2-bot {
+  border-radius: 0 0 3px 3px;
+  margin-bottom: calc(.5em + 6px);
+  z-index: 2;
+}
+
+/* Button styling End */
+
+
+/* Quiz Styling */
+
+.quizInput {
+  width: 10em;
+}
+
+
+/* End Quiz Styling */
+
+
+/* Mobile Optimization */
+
+
+/* End Mobile Optimization */
