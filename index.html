@@ -14,6 +14,10 @@
     <h1 class="header">
     NHL Logger Tools
   </h1>
+    <div class="row center currentTime">
+      <p>Current Time:</p>
+      <h3 id="currentTime">-</h3> 
+    </div>
     <div class="clock tool lrgTool">
       <h4 class="toolTitle">
         Intermission Clock
@@ -22,14 +26,14 @@
         - Hide Tool
       </div>
       <div id="innerClock">
+
         <p>
-        It is currently:
-      </p>
-      <h3 id="currentTime">-</h3>
-        <p>
-          The intermission will end at:
+          Play will resume in:
         </p>
-        <h2 id="intermissionEnd">-</h2>
+        <h2 id="timeRemaining">
+          -
+        </h2>
+        <h4 id="intermissionEnd">-</h4>
         <div class="btnRow">
           <button id="btnStart" class="btn perEnd">
                         Period End
@@ -46,8 +50,8 @@
       </div>
     </div>
     <!-- Clock End -->
-    
-    
+
+
     <div class="breakTracker tool">
       <h4 class="toolTitle">
       Breaks &amp; Alerts
@@ -117,13 +121,13 @@
             </button>
     </div>
     <!-- Break Tracker End -->
-    
+
     <div class="highlight-tracker tool">
       <h4 class="toolTitle">Highlight Tracker</h4>
       <div id="toggleHTracker" class="mini-toggle toolToggle">
         - Hide Tool</div>
       <div id="inner-h-tracker">
-        <div class="row">
+        <div class="row around">
           <p>
             Home
           </p>
@@ -131,15 +135,15 @@
             Away
           </p>
         </div>
-        <div class="row highlight-total">
+        <div class="row around highlight-total">
           <p id="highlight-home">0</p>
           <p id="highlight-away">0</p>
         </div>
-        <div class="row btn-row-2">
+        <div class="row around btn-row-2">
           <div class="btn btn-2 btn-2-top" id="home-tracker-plus">+</div>
           <div class="btn btn-2 btn-2-top" id="away-tracker-plus">+</div>
         </div>
-        <div class="row btn-row-2">
+        <div class="row around btn-row-2">
           <div class="btn btn-2 btn-2-bot reset" id="home-tracker-minus">-</div>
           <div class="btn btn-2 btn-2-bot reset" id="away-tracker-minus">-</div>
         </div>

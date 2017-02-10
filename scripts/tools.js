@@ -1,14 +1,15 @@
 function globalFunction() {
-  var time, current, hours, minutes, seconds, customHr, customMin;
-  
+  var time, current, countdown, hours, minutes, seconds, customHr, customMin, fhours, fminutes, fseconds;
+
   // Intermission Clock
   var toggleClock = document.getElementById("toggleClock");
   var innerClock = document.getElementById("innerClock");
   var custHr = document.getElementById("customHr");
   var custMin = document.getElementById("customMin");
+  var timeRemaining = document.getElementById("timeRemaining");
   var intermissionEnd = document.getElementById("intermissionEnd");
   var currentTime = document.getElementById("currentTime");
-  
+
   // Highlight Tracker
   var toggleHTracker = document.getElementById("toggleHTracker");
   var innerHTracker = document.getElementById("inner-h-tracker");
@@ -18,7 +19,7 @@ function globalFunction() {
   var awayPlus = document.getElementById("away-tracker-plus");
   var homeMinus = document.getElementById("home-tracker-minus");
   var awayMinus = document.getElementById("away-tracker-minus");
-  
+
   // Break Tracker
   var toggleTracker = document.getElementById("toggleTracker");
   var innerTracker = document.getElementById("innerTracker");
@@ -29,27 +30,31 @@ function globalFunction() {
   var p2Tracker = document.getElementById("p2");
   var toggleP3Tracker = document.getElementById("p3-hide");
   var p3Tracker = document.getElementById("p3");
-  
+
   // Stream Launcher
   var launchBtn = document.getElementById("launchStream");
   var launchFrench = document.getElementById("launchFrench");
   var launchTips = document.getElementById("launchTips");
   var toggleStreams = document.getElementById("toggleStreams");
 
-  
+
   // Adds a zero to single digit numbers
   function addZero(n) {
     return (n < 10 ? "0" + n : n);
   }
 
+  // Set time variables
+  function setTimes() {
+    current = new Date();
+    hours = fhours = addZero(current.getHours());
+    minutes = fminutes = addZero(current.getMinutes());
+    seconds = fseconds = addZero(current.getSeconds());
+  }
+
   // Initializes the current clock
   function timerStart() {
-    custHr.value = "";
-    custMin.value = "";
-    current = new Date();
-    hours = addZero(current.getHours());
-    minutes = addZero(current.getMinutes());
-    seconds = addZero(current.getSeconds());
+    clearInterval(time);
+    setTimes();
 
     // Updates clock every second
     time = setInterval(function() {
@@ -65,36 +70,72 @@ function globalFunction() {
   }
 
   function setEnd() {
+    clearInterval(countdown);
     // Remove any white space in input
     customHr = custHr.value.replace(/\s/g, '');
     customMin = custMin.value.replace(/\s/g, '');
 
+    setTimes();
+    timerStart();
     // Makes sure input is a valid time
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) {
-      hours = customHr;
+      fhours = customHr;
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
-      minutes = customMin;
+      fminutes = customMin;
     }
+    
+
 
     // Handles the changing of an hour
-    if (hours >= 23 && minutes >= 42 && current.getMinutes() > 17) {
-      intermissionEnd.innerHTML = "00" + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else if (hours >= 23 && minutes >= 42 && current.getMinutes() <= 17) {
-      intermissionEnd.innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else if (hours < 23 && minutes >= 42 && current.getMinutes() > 17) {
-      intermissionEnd.innerHTML = (parseInt(hours) + 1) + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
-    } else if (hours < 23 && minutes >= 42 && current.getMinutes() <= 17) {
-      intermissionEnd.innerHTML = hours + ":" + addZero((parseInt(minutes) + 18) - 60) + ":" + seconds;
+    if (fhours >= 23 && fminutes >= 42 && current.getMinutes() > 17) {
+      fhours = addZero(0);
+      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+    } else if (fhours >= 23 && fminutes >= 42 && current.getMinutes() <= 17) {
+      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+
+    } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() > 17) {
+      fhours = (parseInt(fhours) + 1);
+      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+
+    } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() <= 17) {
+      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+
     } else {
-      intermissionEnd.innerHTML = hours + ":" + (parseInt(minutes) + 18) + ":" + seconds;
+      fminutes = (parseInt(fminutes) + 18);
+
     }
+    intermissionEnd.innerHTML = '(' + fhours + ":" + fminutes + ":" + fseconds + ')';
+    clearInput();
+    
+    var remainingMinutes = 18;
+    var remainingSeconds = 0;
+    timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
+
+    countdown = setInterval(function countdownStart() {
+      if (remainingMinutes === 0 && remainingSeconds === 0) {
+        timeRemaining.innerHTML = 'Play Resuming';
+        clearInterval(countdown);
+      } else {
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+        } else {
+          remainingMinutes--;
+          remainingSeconds = 59;
+        }
+          timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
+      }
+    }, 1000)
   }
+
+
 
   // Resets intermission end timer
   function timerReset() {
-    intermissionEnd.innerHTML = "-";
+    clearInterval(countdown);
     clearInput();
+    intermissionEnd.innerHTML = "-";
+    timeRemaining.innerHTML = "-";
   }
 
   // Clears optional time fields
@@ -110,13 +151,15 @@ function globalFunction() {
     }
     toggleView([launchBtn, launchFrench], toggleStreams);
   }
-  
+
   // Unchecks all checkboxes
   function clearChecks() {
     var checks = document.getElementsByTagName('input');
-    
+
     for (var i = 0; i < checks.length; i++) {
-      if (checks[i].type == 'checkbox') {checks[i].checked = false;}
+      if (checks[i].type == 'checkbox') {
+        checks[i].checked = false;
+      }
     }
   }
 
@@ -132,23 +175,23 @@ function globalFunction() {
       }
     }
     if (btn.innerHTML.toLowerCase().match(/(?:^|\s)show(?!\S)/g)) {
-        btn.innerHTML = "- Hide Tool";
-      } else if (btn.innerHTML.toLowerCase().match(/(?:^|\s)hide(?!\S)/g)) {
-        btn.innerHTML = "+ Show Tool";
-      } else if (btn.innerHTML.length = 1 && btn.innerHTML == "-") {
-        btn.innerHTML = "+";
-      } else if (btn.innerHTML.length = 1 && btn.innerHTML == "+") {
-        btn.innerHTML = "-";
-      } else {
-        throw error;
-      }
+      btn.innerHTML = "- Hide Tool";
+    } else if (btn.innerHTML.toLowerCase().match(/(?:^|\s)hide(?!\S)/g)) {
+      btn.innerHTML = "+ Show Tool";
+    } else if (btn.innerHTML.length == 1 && btn.innerHTML == "-") {
+      btn.innerHTML = "+";
+    } else if (btn.innerHTML.length == 1 && btn.innerHTML == "+") {
+      btn.innerHTML = "-";
+    } else {
+      throw error;
+    }
   }
-  
+
   // Adds and subtracts from given args
   function plusOne(num) {
     num.innerHTML = parseInt(num.innerHTML) + 1;
   }
-  
+
   function minusOne(num) {
     num.innerHTML = parseInt(num.innerHTML) - 1;
   }
@@ -159,32 +202,32 @@ function globalFunction() {
   document.getElementById("btnReset").addEventListener("click", timerReset);
 
   clearTracker.addEventListener("click", clearChecks);
-  
+
   homePlus.addEventListener("click", function() {
     plusOne(highlightHome);
   });
-  
+
   awayPlus.addEventListener("click", function() {
     plusOne(highlightAway);
   });
-  
+
   homeMinus.addEventListener("click", function() {
     minusOne(highlightHome);
   });
-  
+
   awayMinus.addEventListener("click", function() {
     minusOne(highlightAway);
   });
-  
+
   launchBtn.addEventListener("click", function() {
     launch(3)
   });
-  
+
   launchFrench.addEventListener("click", function() {
     launch(4)
   })
-  
-  
+
+
   // Toggles view for tools
   toggleStreams.addEventListener("click", function() {
     toggleView([launchBtn, launchFrench], toggleStreams);
@@ -192,11 +235,11 @@ function globalFunction() {
   toggleClock.addEventListener("click", function() {
     toggleView([innerClock], toggleClock);
   });
-  
+
   toggleHTracker.addEventListener("click", function() {
     toggleView([innerHTracker], toggleHTracker);
   });
-  
+
   toggleTracker.addEventListener("click", function() {
     toggleView([innerTracker, clearTracker], toggleTracker);
   });
@@ -213,6 +256,7 @@ function globalFunction() {
     toggleView([p3], toggleP3Tracker)
   });
 
+  clearInput();
   timerStart();
   clearChecks();
 }
