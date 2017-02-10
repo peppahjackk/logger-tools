@@ -55,7 +55,7 @@ function globalFunction() {
   function timerStart() {
     clearInterval(time);
     setTimes();
-
+    timeRemaining.style.color = '#EDEDED';
     // Updates clock every second
     time = setInterval(function() {
       current = new Date();
@@ -113,8 +113,14 @@ function globalFunction() {
     timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
 
     countdown = setInterval(function countdownStart() {
+      if (remainingMinutes == 5 && remainingSeconds === 0) {
+        timeRemaining.style.color = '#f0a202';
+      } else if (remainingMinutes === 1 && remainingSeconds === 0) {
+        timeRemaining.style.color = '#c84630';
+      }
       if (remainingMinutes === 0 && remainingSeconds === 0) {
         timeRemaining.innerHTML = 'Play Resuming';
+        intermissionEnd.innerHTML = "-";
         clearInterval(countdown);
       } else {
         if (remainingSeconds > 0) {
@@ -136,6 +142,7 @@ function globalFunction() {
     clearInput();
     intermissionEnd.innerHTML = "-";
     timeRemaining.innerHTML = "-";
+    timeRemaining.style.color = '#EDEDED';
   }
 
   // Clears optional time fields
