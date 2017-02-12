@@ -33,9 +33,10 @@ function globalFunction() {
 
   // Stream Launcher
   var launchBtn = document.getElementById("launchStream");
-  var launchFrench = document.getElementById("launchFrench");
+  var launchNum = document.getElementById("streamCount");
   var launchTips = document.getElementById("launchTips");
   var toggleStreams = document.getElementById("toggleStreams");
+  var innerLaunch = document.getElementById("innerLauncher");
 
 
   // Adds a zero to single digit numbers
@@ -113,9 +114,9 @@ function globalFunction() {
     timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
 
     countdown = setInterval(function countdownStart() {
-      if (remainingMinutes == 5 && remainingSeconds === 0) {
+      if (remainingMinutes == 6 && remainingSeconds === 0) {
         timeRemaining.style.color = '#f0a202';
-      } else if (remainingMinutes === 1 && remainingSeconds === 0) {
+      } else if (remainingMinutes === 4 && remainingSeconds === 0) {
         timeRemaining.style.color = '#c84630';
       }
       if (remainingMinutes === 0 && remainingSeconds === 0) {
@@ -140,8 +141,8 @@ function globalFunction() {
   function timerReset() {
     clearInterval(countdown);
     clearInput();
-    intermissionEnd.innerHTML = "-";
-    timeRemaining.innerHTML = "-";
+    intermissionEnd.innerHTML = "(00:00)";
+    timeRemaining.innerHTML = "00:00";
     timeRemaining.style.color = '#EDEDED';
   }
 
@@ -156,7 +157,7 @@ function globalFunction() {
     for (var i = 0; i < num; i++) {
       window.open("https://www.nhl.com/tv/2016020480", "", "width=1024,height=820,top=260, left=" + (260 * i) + '"');
     }
-    toggleView([launchBtn, launchFrench], toggleStreams);
+    toggleView([innerLaunch], toggleStreams);
   }
 
   // Unchecks all checkboxes
@@ -227,17 +228,13 @@ function globalFunction() {
   });
 
   launchBtn.addEventListener("click", function() {
-    launch(3)
+    launch(launchNum.options[launchNum.selectedIndex].value)
   });
-
-  launchFrench.addEventListener("click", function() {
-    launch(4)
-  })
 
 
   // Toggles view for tools
   toggleStreams.addEventListener("click", function() {
-    toggleView([launchBtn, launchFrench], toggleStreams);
+    toggleView([innerLaunch], toggleStreams);
   });
   toggleClock.addEventListener("click", function() {
     toggleView([innerClock], toggleClock);

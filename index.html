@@ -16,7 +16,7 @@
   </h1>
     <div class="row center currentTime">
       <p>Current Time:</p>
-      <h3 id="currentTime">-</h3> 
+      <h3 id="currentTime">-</h3>
     </div>
     <div class="clock tool lrgTool">
       <h4 class="toolTitle">
@@ -30,10 +30,12 @@
         <p>
           Play will resume in:
         </p>
-        <h2 id="timeRemaining">
-          -
+        <div class="tool timeBox">
+
+          <h2 id="timeRemaining">
+          00:00
         </h2>
-        <h4 id="intermissionEnd">-</h4>
+          <h4 id="intermissionEnd">&lpar;00:00&rpar;</h4> </div>
         <div class="btnRow">
           <button id="btnStart" class="btn perEnd">
                         Period End
@@ -53,8 +55,8 @@
 
 
     <div class="breakTracker tool">
-      <h4 class="toolTitle">
-      Breaks &amp; Alerts
+      <h4 class="toolTitle miniTitle">
+      Breaks&#47;Alerts
     </h4>
       <div id="toggleTracker" class="mini-toggle toolToggle">
         - Hide Tool
@@ -123,7 +125,7 @@
     <!-- Break Tracker End -->
 
     <div class="highlight-tracker tool">
-      <h4 class="toolTitle">Highlight Tracker</h4>
+      <h4 class="toolTitle miniTitle">RTH Tracker</h4>
       <div id="toggleHTracker" class="mini-toggle toolToggle">
         - Hide Tool</div>
       <div id="inner-h-tracker">
@@ -136,8 +138,8 @@
           </p>
         </div>
         <div class="row around highlight-total">
-          <p id="highlight-home">0</p>
-          <p id="highlight-away">0</p>
+          <h3 id="highlight-home">0</h3>
+          <h3 id="highlight-away">0</h3>
         </div>
         <div class="row around btn-row-2">
           <div class="btn btn-2 btn-2-top" id="home-tracker-plus">+</div>
@@ -158,12 +160,21 @@
       <div id="toggleStreams" class="toolTitle toolToggle">
         - Hide Tool
       </div>
-      <button id="launchStream" class="btn btn-small">
-                Launch without French
+      <div id="innerLauncher">
+        <div class="row">
+          <label for="streamCount">Open</label>
+          <select id="streamCount">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        </select>
+          <p>stream&lpar;s&rpar;</p>
+        </div>
+        <button id="launchStream" class="btn">
+                Launch Stream&lpar;s&rpar;
             </button>
-      <button id="launchFrench" class="btn btn-small reset">
-                Launch with French
-            </button>
+      </div>
       <p id="launchTips">
         To navigate to today's games click the calendar icon then the today button
       </p>
