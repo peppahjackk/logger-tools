@@ -143,6 +143,12 @@ input:checked+ label {
   text-decoration: none;
 }
 
+.caution {
+  background-color: #F0C402;
+  color: #333;
+  padding: .25em;
+}
+
 .currentTime> * {
   margin-top: 0;
   margin-bottom: 0;

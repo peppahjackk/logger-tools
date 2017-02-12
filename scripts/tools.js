@@ -115,7 +115,7 @@ function globalFunction() {
 
     countdown = setInterval(function countdownStart() {
       if (remainingMinutes == 6 && remainingSeconds === 0) {
-        timeRemaining.style.color = '#f0a202';
+        timeRemaining.style.color = '#F0C402';
       } else if (remainingMinutes === 4 && remainingSeconds === 0) {
         timeRemaining.style.color = '#c84630';
       }
