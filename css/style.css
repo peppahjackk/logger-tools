@@ -205,6 +205,10 @@ input:checked+ label {
   clear: left;
 }
 
+.innerLauncher {
+  margin: 0;
+}
+
 .streamLaunch .row {
   justify-content: center;
 }
