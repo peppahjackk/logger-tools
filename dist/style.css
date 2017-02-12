@@ -1,4 +1,4 @@
-body * {
+.container * {
   margin: 0.5rem;
 }
 
@@ -10,7 +10,7 @@ body {
   justify-content: center;
   color: #ededed;
   font-family: Raleway, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin: 0;
   overflow-x: hidden;
@@ -103,9 +103,8 @@ input:checked+ label {
   border: 2px solid #333;
   border-radius: 3px;
   position: relative;
-  padding-top: 3.275em;
-  max-width: 245px;
-  min-width: 114px;
+  max-width: 197px;
+  min-width: 95px;
   margin: .25em;
 }
 
@@ -118,9 +117,13 @@ input:checked+ label {
   position: absolute;
   top: 0;
   background-color: #333;
-  padding: .5em;
+  padding: .4em;
   margin: 0;
   border-radius: 0 0 3px;
+}
+
+.miniTitle {
+  position:relative;
 }
 
 .toolToggle {
@@ -138,7 +141,7 @@ input:checked+ label {
 
 .mini-toggle {
   padding: .5em;
-  margin: .2em 0 0 0;
+  margin: 0;
   border-radius: 0 0 3px 3px;
   font-size: .75em;
 }
@@ -156,15 +159,22 @@ input:checked+ label {
 
 .customTime input {
   width: 1.8em;
-  margin: 0.5rem 0.2rem;
+  margin: 0 0.2rem 0.5rem;
 }
 
 .clock {
   float: left;
 }
 
+.timeBox {
+  padding: .5em;
+}
+
+.timeBox> * {
+  margin: 0;
+}
+
 .breakTracker {
-  padding-top: 3.275em;
   float: right;
   clear: right;
 }
@@ -190,16 +200,26 @@ input:checked+ label {
   margin: 0;
 }
 
-#inner-h-tracker p {
-  font-size: .925em;
-}
-
 .highlight-total {
   margin: 0 0 .5em 0;
 }
 
 .streamLaunch {
   clear: left;
+}
+
+.streamLaunch .row {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.streamLaunch select {
+  width: 5em;
+  margin-bottom: 0;
+}
+
+.streamLaunch .row label, .streamLaunch .row p {
+  margin: .5em 0 0 0;
 }
 
 #launchStream {
@@ -210,25 +230,24 @@ input:checked+ label {
 /* Button Styling start */
 
 .btn {
-  background-color: #5A71A3;
+  background-color: #1e5896;
   padding: 10px;
   border: 0px;
   border-radius: 3px;
   color: #EDEDED;
-  box-shadow: #2D374D 0px 6px;
-  margin-bottom: calc(0.5em+ 6px);
-  font-size: 1em;
+  box-shadow: #122F4E 0px 6px;
+  font-size: .9em;
   font-family: Raleway, sans-serif;
 }
 
 .btn:hover {
-  background-color: #637EBA;
+  background-color: #366291;
   cursor: pointer;
 }
 
 .btn:active {
   transform: translateY(3px);
-  box-shadow: #303030 0px 3px;
+  box-shadow: #122F4E 0px 3px;
 }
 
 .btnRow {
@@ -247,7 +266,7 @@ input:checked+ label {
 
 .btn-mini {
   width: 80%;
-  margin: .5em 0 calc(1em+ 6px) 0;
+  margin: .5em 0 13px 0;
   padding: .5em 0;
   font-size: .75em;
 }
@@ -278,7 +297,7 @@ input:checked+ label {
 
 .btn-2-bot {
   border-radius: 0 0 3px 3px;
-  margin-bottom: calc(.5em+ 6px);
+  margin-bottom: 13px;
   z-index: 2;
 }
 

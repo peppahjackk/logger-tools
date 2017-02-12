@@ -220,24 +220,24 @@ input:checked+ label {
 /* Button Styling start */
 
 .btn {
-  background-color: #5A71A3;
+  background-color: #1e5896;
   padding: 10px;
   border: 0px;
   border-radius: 3px;
   color: #EDEDED;
-  box-shadow: #2D374D 0px 6px;
+  box-shadow: #122F4E 0px 6px;
   font-size: .9em;
   font-family: Raleway, sans-serif;
 }
 
 .btn:hover {
-  background-color: #637EBA;
+  background-color: #366291;
   cursor: pointer;
 }
 
 .btn:active {
   transform: translateY(3px);
-  box-shadow: #303030 0px 3px;
+  box-shadow: #122F4E 0px 3px;
 }
 
 .btnRow {
