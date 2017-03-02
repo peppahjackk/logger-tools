@@ -19,6 +19,7 @@ function globalFunction() {
   var awayPlus = document.getElementById("away-tracker-plus");
   var homeMinus = document.getElementById("home-tracker-minus");
   var awayMinus = document.getElementById("away-tracker-minus");
+  var clearHTotal = document.getElementById("clearHTotal");
 
   // Break Tracker
   var toggleTracker = document.getElementById("toggleTracker");
@@ -78,15 +79,27 @@ function globalFunction() {
 
     setTimes();
     timerStart();
-    // Makes sure input is a valid time
+
+    var remainingMinutes = 18;
+    var remainingSeconds = 0;
+
+    // Makes sure input is a valid time and adjusts countdown length
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) {
       fhours = customHr;
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
+      if (customMin >= 42 && fminutes <= 42 && fminutes < customMin) {
+        remainingMinutes = 18 - ((60 + parseInt(fminutes)) - customMin);
+      } else if (fminutes >= 42 && fminutes < customMin) {
+        intermissionEnd.innerHTML = '(00:00)';
+        timeRemaining.innerHTML = 'ERROR';
+        clearInput();
+        return;
+      } else {
+        remainingMinutes = 18 - (fminutes - customMin);
+      }
       fminutes = customMin;
     }
-    
-
 
     // Handles the changing of an hour
     if (fhours >= 23 && fminutes >= 42 && current.getMinutes() > 17) {
@@ -94,29 +107,23 @@ function globalFunction() {
       fminutes = addZero((parseInt(fminutes) + 18) - 60);
     } else if (fhours >= 23 && fminutes >= 42 && current.getMinutes() <= 17) {
       fminutes = addZero((parseInt(fminutes) + 18) - 60);
-
     } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() > 17) {
       fhours = (parseInt(fhours) + 1);
       fminutes = addZero((parseInt(fminutes) + 18) - 60);
-
     } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() <= 17) {
       fminutes = addZero((parseInt(fminutes) + 18) - 60);
-
     } else {
       fminutes = (parseInt(fminutes) + 18);
-
     }
     intermissionEnd.innerHTML = '(' + fhours + ":" + fminutes + ":" + fseconds + ')';
     clearInput();
-    
-    var remainingMinutes = 18;
-    var remainingSeconds = 0;
+
     timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
 
     countdown = setInterval(function countdownStart() {
-      if (remainingMinutes == 6 && remainingSeconds === 0) {
+      if (remainingMinutes <= 5 && remainingMinutes > 3 && timeRemaining.style.color != '#F0C402') {
         timeRemaining.style.color = '#F0C402';
-      } else if (remainingMinutes === 4 && remainingSeconds === 0) {
+      } else if (remainingMinutes <= 3 && timeRemaining.style.color != '#c84630') {
         timeRemaining.style.color = '#c84630';
       }
       if (remainingMinutes === 0 && remainingSeconds === 0) {
@@ -130,7 +137,7 @@ function globalFunction() {
           remainingMinutes--;
           remainingSeconds = 59;
         }
-          timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
+        timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
       }
     }, 1000)
   }
@@ -168,6 +175,28 @@ function globalFunction() {
       if (checks[i].type == 'checkbox') {
         checks[i].checked = false;
       }
+    }
+  }
+  
+  // Show an element(s) if not already visible
+  function show(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].className.match(/(?:^|\s)hidden(?!\S)/g)) {
+        arr[i].className = arr[i].className.replace(/(?:^|\s)hidden(?!\S)/g, '');
+      }
+    }
+  }
+  
+  // Hides an element(s) if not already hidden
+  function hide(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (!arr[i].className.match(/(?:^|\s)hidden(?!\S)/g)) {
+      if (arr[i].className.length > 0) {
+        arr[i].className += " hidden";
+      } else {
+        arr[i].className += 'hidden';
+      }
+    }
     }
   }
 
@@ -209,7 +238,16 @@ function globalFunction() {
 
   document.getElementById("btnReset").addEventListener("click", timerReset);
 
-  clearTracker.addEventListener("click", clearChecks);
+  clearTracker.addEventListener("click", function() {
+    clearChecks();
+    show([p1]);
+    hide([p2,p3]);
+  });
+  
+  clearHTotal.addEventListener("click", function() {
+    highlightHome.innerHTML = 0;
+    highlightAway.innerHTML = 0;
+  });
 
   homePlus.addEventListener("click", function() {
     plusOne(highlightHome);

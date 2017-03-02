@@ -97,6 +97,7 @@ input:checked+ label {
   max-width: 197px;
   min-width: 95px;
   margin: .25em;
+  width: 105px;
 }
 
 .lrgTool {
@@ -161,10 +162,17 @@ input:checked+ label {
 
 .clock {
   float: left;
+  margin-bottom: .5rem;
 }
 
 .timeBox {
   padding: .5em;
+  border: 2px solid #333;
+  border-radius: 3px;
+  position: relative;
+  max-width: 197px;
+  min-width: 95px;
+  margin: .25em;
 }
 
 .timeBox> * {
@@ -199,6 +207,10 @@ input:checked+ label {
 
 .highlight-total {
   margin: 0 0 .5em 0;
+}
+
+.highlight-total h3 {
+  margin: 0, .5rem;
 }
 
 .streamLaunch {
