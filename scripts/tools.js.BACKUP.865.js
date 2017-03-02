@@ -88,9 +88,15 @@ function globalFunction() {
       fhours = customHr;
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
+<<<<<<< HEAD
       if (fminutes < customMin && customMin >= 42 && (60 - customMin) + fminutes < 18) {
         remainingMinutes = 18 - ((60 + parseInt(fminutes)) - customMin);
       } else if (fminutes < customMin && (60 - customMin) + fminutes > 18) {
+=======
+      if (customMin >= 42 && fminutes <= 42 && fminutes < customMin) {
+        remainingMinutes = 18 - ((60 + parseInt(fminutes)) - customMin);
+      } else if (fminutes >= 42 && fminutes < customMin) {
+>>>>>>> 9f45c4cf61fef4bd7540a1f3d83519aad3b1a460
         intermissionEnd.innerHTML = '(00:00)';
         timeRemaining.innerHTML = 'ERROR';
         clearInput();

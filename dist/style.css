@@ -171,6 +171,7 @@ input:checked+ label {
 
 .clock {
   float: left;
+  margin-bottom: .5rem;
 }
 
 .timeBox {
@@ -215,6 +216,10 @@ input:checked+ label {
 
 .highlight-total {
   margin: 0 0 .5em 0;
+}
+
+.highlight-total h3 {
+  margin: 0, .5rem;
 }
 
 .streamLaunch {
