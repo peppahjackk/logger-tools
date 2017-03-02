@@ -89,37 +89,38 @@ function globalFunction() {
 
     // Makes sure input is a valid time and adjusts countdown length
     if (customHr !== "" && !isNaN(customHr) && customHr < 24) {
-      fhours = customHr;
+      fhours = parseInt(customHr);
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
       if (fminutes < customMin && customMin >= 42 && (60 - customMin) + fminutes < 18) {
         remainingMinutes = 18 - ((60 + fminutes) - customMin);
-      } else if ((fminutes < customMin && (60 - customMin) + fminutes > 18) || (fminutes > customMin && fminutes - customMin < 1)) {
+      } else if (fminutes >= customMin && fminutes - customMin <= 18) {
+        remainingMinutes = 18 - (fminutes - customMin);
+      } else {
         intermissionEnd.innerHTML = '(00:00)';
         timeRemaining.innerHTML = 'ERROR';
         clearInput();
         return;
-      } else {
-        remainingMinutes = 18 - (fminutes - customMin);
-      }
-      fminutes = customMin;
+      } 
+      
+      fminutes = parseInt(customMin);
     }
 
     // Handles the changing of an hour
     if (fhours >= 23 && fminutes >= 42 && current.getMinutes() > 17) {
-      fhours = addZero(0);
-      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+      fhours = 0;
+      fminutes = (fminutes + 18) - 60;
     } else if (fhours >= 23 && fminutes >= 42 && current.getMinutes() <= 17) {
-      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+      fminutes = (fminutes + 18) - 60;
     } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() > 17) {
-      fhours = (parseInt(fhours) + 1);
-      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+      fhours = (fhours + 1);
+      fminutes = (fminutes + 18) - 60;
     } else if (fhours < 23 && fminutes >= 42 && current.getMinutes() <= 17) {
-      fminutes = addZero((parseInt(fminutes) + 18) - 60);
+      fminutes = (fminutes + 18) - 60;
     } else {
-      fminutes = (parseInt(fminutes) + 18);
+      fminutes = fminutes + 18;
     }
-    intermissionEnd.innerHTML = '(' + fhours + ":" + fminutes + ":" + fseconds + ')';
+    intermissionEnd.innerHTML = '(' + addZero(fhours) + ":" + addZero(fminutes) + ":" + addZero(fseconds) + ')';
     clearInput();
 
     timeRemaining.innerHTML = addZero(remainingMinutes) + ':' + addZero(remainingSeconds);
