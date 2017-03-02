@@ -79,6 +79,10 @@ function globalFunction() {
 
     setTimes();
     timerStart();
+    
+    fhours = parseInt(fhours);
+    fminutes = parseInt(fminutes);
+    fseconds = parseInt(fseconds);
 
     var remainingMinutes = 18;
     var remainingSeconds = 0;
@@ -89,8 +93,8 @@ function globalFunction() {
     }
     if (customMin !== "" && !isNaN(customMin) && customMin < 60) {
       if (fminutes < customMin && customMin >= 42 && (60 - customMin) + fminutes < 18) {
-        remainingMinutes = 18 - ((60 + parseInt(fminutes)) - customMin);
-      } else if (fminutes < customMin && (60 - customMin) + fminutes > 18) {
+        remainingMinutes = 18 - ((60 + fminutes) - customMin);
+      } else if ((fminutes < customMin && (60 - customMin) + fminutes > 18) || (fminutes > customMin && fminutes - customMin < 1)) {
         intermissionEnd.innerHTML = '(00:00)';
         timeRemaining.innerHTML = 'ERROR';
         clearInput();
