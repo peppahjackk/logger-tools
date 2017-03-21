@@ -324,7 +324,12 @@ input:checked+ label {
 /* End Quiz Styling */
 
 
-/* Mobile Optimization */
+/* Browser Optimization */
 
+@-moz-document url-prefix() { 
+  #innerTracker .wrapper label, #innerTracker .wrapper br {
+     margin: 0 .5em;
+  }
+}
 
-/* End Mobile Optimization */
+/* End Browser Optimization */
